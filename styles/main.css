@@ -1,0 +1,105 @@
+/* 
+    ARENA TEAMS - Design System Premium (Indigo/Violet)
+    Desenvolvido por ZUKON TECH © 2026
+*/
+
+:root {
+    --bg-dark: 230, 20%, 5%;        
+    --accent: 250, 80%, 70%;       /* Violeta/Indigo */
+    --accent-glow: 250, 80%, 70%, 0.3;
+    --text-main: 210, 15%, 85%;    
+    --text-dim: 210, 10%, 60%;     
+    --glass-bg: rgba(13, 17, 23, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: hsl(var(--bg-dark));
+    color: hsl(var(--text-main));
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#app-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    width: 100%;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;
+}
+
+.brand {
+    font-size: 1.8rem; font-weight: 700; color: hsl(var(--accent)); text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.status-badge {
+    font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;
+}
+.status-badge.connected { color: hsl(var(--accent)); background: rgba(162, 155, 254, 0.1); }
+
+.welcome-screen { display: flex; flex-direction: column; gap: 20px; }
+.action-card {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 15px; padding: 25px; cursor: pointer; text-align: center; transition: 0.3s;
+}
+.action-card:hover { border-color: hsl(var(--accent)); background: rgba(162, 155, 254, 0.05); transform: translateY(-5px); }
+.action-card i { font-size: 3rem; margin-bottom: 10px; display: block; }
+
+.config-panel {
+    background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 12px; padding: 20px; margin: 20px 0; text-align: left;
+}
+.input-inline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+
+input[type="text"], select {
+    background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white; padding: 10px; border-radius: 8px; width: 100%; max-width: 200px;
+}
+
+.btn-primary {
+    background: hsl(var(--accent)); color: hsl(var(--bg-dark)); border: none; padding: 15px 40px; border-radius: 12px; font-weight: 700; cursor: pointer; width: 100%;
+}
+.btn-primary:disabled { opacity: 0.5; }
+
+.btn-secondary {
+    background: transparent; border: 1px solid var(--glass-border); color: var(--text-main); padding: 8px 15px; border-radius: 8px; cursor: pointer;
+}
+
+.team-card {
+    background: rgba(162, 155, 254, 0.1); border: 1px solid rgba(162, 155, 254, 0.3); border-radius: 15px; padding: 20px; margin-top: 20px; text-align: left;
+}
+.team-card ul { list-style: none; margin-top: 10px; }
+.team-card li { padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+.role-badge {
+    display: inline-block; background: hsl(var(--accent)); color: hsl(var(--bg-dark)); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; margin-bottom: 15px;
+}
+
+.session-badge {
+    background: #2d3436; color: hsl(var(--accent)); padding: 8px 16px; border-radius: 50px; font-family: monospace; font-weight: 700;
+}
+
+#qrcode-container { background: white; padding: 10px; border-radius: 10px; display: inline-block; margin: 20px 0; }
+
+.hidden { display: none !important; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader-wave { display: flex; justify-content: center; gap: 5px; margin-top: 20px; }
+.loader-wave span { width: 8px; height: 8px; background: hsl(var(--accent)); border-radius: 50%; animation: wave 1.2s infinite; }
+.loader-wave span:nth-child(2) { animation-delay: 0.2s; }
+.loader-wave span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes wave { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+footer { margin-top: auto; padding: 30px; text-align: center; color: var(--text-dim); font-size: 0.85rem; }

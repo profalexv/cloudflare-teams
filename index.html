@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Teams - Formação de Equipes Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Socket.io -->
+    <script src="https://game.axom.app/socket.io/socket.io.js"></script>
+    <!-- QRCode Lib -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <div id="app-container">
+        
+        <header>
+            <div class="brand">ARENA TEAMS</div>
+            <div id="motor-status-badge" class="status-badge connecting">Conectando...</div>
+            <div style="display: flex; gap: 15px;">
+                <a href="https://match.axom.app" class="btn-secondary" style="font-size: 0.8rem; text-decoration: none;">🎁 Match</a>
+                <a href="https://arena.axom.app" class="btn-secondary" style="font-size: 0.8rem; text-decoration: none;">🎮 Arena</a>
+            </div>
+        </header>
+
+        <main class="glass-panel">
+            
+            <!-- TELA 1: SELEÇÃO INICIAL -->
+            <div id="screen-welcome" class="welcome-screen">
+                <div class="action-card" onclick="showCreateSession()">
+                    <i>👑</i>
+                    <h2>Criar Nova Sessão</h2>
+                    <p>Organize grupos e duplas para sua turma ou evento em tempo real.</p>
+                </div>
+                <div class="action-card" onclick="showJoinSession()">
+                    <i>👥</i>
+                    <h2>Entrar em uma Sessão</h2>
+                    <p>Digite o código ou aponte a câmera para o QR Code.</p>
+                </div>
+            </div>
+
+            <!-- TELA 2: ADMIN / ORGANIZADOR -->
+            <div id="screen-admin" class="hidden" style="text-align: center;">
+                <h2 style="margin-bottom: 10px;">Aguardando Participantes</h2>
+                <div id="qrcode-container"></div>
+                <div style="margin: 15px 0;">
+                    <span class="session-badge" id="admin-session-code">TEAM-XXXX</span>
+                </div>
+                
+                <div class="config-panel">
+                    <h3>Configurações do Sorteio</h3>
+                    <div class="input-inline">
+                        <label>Tamanho do Grupo:</label>
+                        <select id="group-size">
+                            <option value="2">Duplas (2)</option>
+                            <option value="3">Trios (3)</option>
+                            <option value="4">Quartetos (4)</option>
+                            <option value="5">Grupos de 5</option>
+                        </select>
+                    </div>
+                    <div class="input-inline">
+                        <label>Indicar Líderes?</label>
+                        <input type="checkbox" id="enable-leaders">
+                    </div>
+                </div>
+
+                <div class="participant-list" id="admin-participant-list">
+                    <!-- Participantes aparecem aqui -->
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button id="btn-start-teams" class="btn-primary" onclick="drawGroups()" disabled>FORMAR EQUIPES</button>
+                    <p id="admin-feedback" style="margin-top: 10px; font-size: 0.85rem; color: #a29bfe;"></p>
+                </div>
+            </div>
+
+            <!-- TELA 3: PARTICIPANTE / ENTRAR -->
+            <div id="screen-join" class="hidden">
+                <button class="btn-secondary" onclick="resetApp()" style="margin-bottom: 20px;">← Voltar</button>
+                <div class="input-group">
+                    <label>Código da Sessão</label>
+                    <input type="text" id="input-session-code" placeholder="TEAM-XXXX" maxlength="10">
+                </div>
+                <div class="input-group">
+                    <label>Seu Nome</label>
+                    <input type="text" id="input-participant-name" placeholder="Como quer ser chamado?">
+                </div>
+                <button id="btn-join-action" class="btn-primary" onclick="joinSession()">ENTRAR NA SESSÃO</button>
+                <p id="join-feedback" style="margin-top: 15px; text-align: center; color: #ff7675;"></p>
+            </div>
+
+            <!-- TELA 4: EM ESPERA -->
+            <div id="screen-waiting" class="hidden" style="text-align: center;">
+                <div style="font-size: 4rem; margin-bottom: 20px;">⏳</div>
+                <h2>Aguardando Sorteio...</h2>
+                <p style="color: var(--text-dim); margin-top: 10px;">O organizador está definindo as equipes.</p>
+                <div class="loader-wave">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <!-- TELA 5: RESULTADO -->
+            <div id="screen-result" class="hidden reveal-box">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🏆</div>
+                <h2 id="result-group-name" style="text-transform: uppercase; letter-spacing: 2px;">EQUIPE 1</h2>
+                <div id="result-role-badge" class="role-badge">MEMBRO</div>
+                
+                <div class="team-card">
+                    <h3>Sua Equipe:</h3>
+                    <ul id="team-members-list">
+                        <!-- Nomes da equipe aqui -->
+                    </ul>
+                </div>
+
+                <button class="btn-secondary" onclick="resetApp()" style="margin-top: 40px;">Novo Sorteio</button>
+            </div>
+
+        </main>
+
+    </div>
+
+    <footer>
+        Desenvolvido por ZUKON TECH LTDA © 2026. Todos os direitos reservados.
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
