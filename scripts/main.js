@@ -57,7 +57,7 @@ socket.on('sessionCreated', ({ sessionCode }) => {
 socket.on('participantJoined', ({ name, count }) => {
     const list = document.getElementById('admin-participant-list');
     const item = document.createElement('div');
-    item.className = 'participant-tag';
+    item.className = 'participant-item';
     item.innerText = name;
     list.appendChild(item);
     
@@ -106,8 +106,9 @@ socket.on('revealed', ({ groupName, role, members }) => {
     document.getElementById('result-group-name').innerText = groupName;
     
     const roleBadge = document.getElementById('result-role-badge');
-    roleBadge.innerText = role === 'leader' ? '👑 LÍDER' : 'MEMBRO';
-    roleBadge.style.background = role === 'leader' ? '#f1c40f' : '#a29bfe';
+    roleBadge.innerText = role === 'leader' ? '👑 LÍDER DA EQUIPE' : 'MEMBRO DA EQUIPE';
+    roleBadge.style.background = role === 'leader' ? 'linear-gradient(135deg, #f59e0b, #d97706)' : 'rgba(255,255,255,0.1)';
+    roleBadge.style.color = role === 'leader' ? 'black' : 'white';
     
     const list = document.getElementById('team-members-list');
     list.innerHTML = "";
