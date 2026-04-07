@@ -21,13 +21,21 @@ const screenResult = document.getElementById('screen-result');
 
 // --- CONECTIVIDADE ---
 socket.on('connect', () => {
-    badge.innerText = 'Online';
+    badge.innerText = 'Motor: Online';
     badge.className = 'status-badge connected';
+    console.log('✅ Conectado ao Motor Arena');
 });
 
 socket.on('disconnect', () => {
-    badge.innerText = 'Offline';
+    badge.innerText = 'Motor: Offline';
     badge.className = 'status-badge disconnected';
+    console.log('❌ Desconectado do Motor Arena');
+});
+
+socket.on('connect_error', (error) => {
+    badge.innerText = 'Motor: Erro';
+    badge.className = 'status-badge disconnected';
+    console.log('⚠️ Erro de conexão:', error.message);
 });
 
 // --- ADMIN: Criar Sessão ---
