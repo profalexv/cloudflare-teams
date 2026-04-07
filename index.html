@@ -11,8 +11,6 @@
 
     <div id="app-container">
         
-    <div id="app-container">
-        
         <header class="zen-header">
             <div class="brand-premium">ARENA TEAMS</div>
             <div class="apps-menu-container">
@@ -33,6 +31,14 @@
         </header>
 
         <style>
+            .zen-header { 
+                position: fixed; top: 0; left: 0; right: 0; height: 70px; 
+                background: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+                display: flex; align-items: center; justify-content: space-between; 
+                padding: 0 2rem; z-index: 1000; font-family: 'Outfit', sans-serif;
+            }
+            .brand-premium { font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; color: white; }
             .apps-menu-container { position: relative; display: inline-block; }
             .apps-menu-btn { 
                 background: rgba(255, 255, 255, 0.05); 
