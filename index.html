@@ -60,10 +60,12 @@
                 }
                 .app-link:hover { background: rgba(255, 255, 255, 0.05); color: #10b981 !important; transform: translateX(5px); }
                 .dropdown-divider { height: 1px; background: rgba(255, 255, 255, 0.08); margin: 4px 0; }
+                .hidden { display: none !important; }
             </style>
 
             <script>
                 (function() {
+                    console.log("ARENA NAV V2.1 TEAMS Loaded");
                     const btn = document.getElementById('apps-menu-btn');
                     const dropdown = document.getElementById('apps-dropdown');
                     if (btn && dropdown) {
@@ -71,7 +73,11 @@
                             e.stopPropagation();
                             dropdown.classList.toggle('hidden');
                         });
-                        document.addEventListener('click', () => dropdown.classList.add('hidden'));
+                        window.addEventListener('click', (e) => {
+                            if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+                                dropdown.classList.add('hidden');
+                            }
+                        });
                     }
                 })();
             </script>
