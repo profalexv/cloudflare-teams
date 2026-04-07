@@ -2,9 +2,10 @@
  * ARENA TEAMS - Frontend Logic
  */
 
-const socket = io('/teams', { 
-    transports: ['websocket'],
-    upgrade: false
+const socket = io('https://game.axom.app/teams', { 
+    transports: ['websocket', 'polling'],
+    upgrade: true,
+    reconnectionAttempts: 5
 });
 
 let currentSession = null;
