@@ -11,10 +11,71 @@
 
     <div id="app-container">
         
-        <header>
-            <div class="brand">ARENA TEAMS</div>
-            <div id="motor-status-badge" class="status-badge connecting">Conectando ao Motor...</div>
+    <div id="app-container">
+        
+        <header class="zen-header">
+            <div class="brand-premium">ARENA TEAMS</div>
+            <div class="apps-menu-container">
+                <button id="apps-menu-btn" class="apps-menu-btn">🚀 ARENA</button>
+                <div id="apps-dropdown" class="apps-dropdown hidden">
+                    <a href="https://arena.axom.app" class="app-link">🏠 Arena Hub</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://cronos.axom.app" class="app-link">⏳ Cronos</a>
+                    <a href="https://win.axom.app" class="app-link">🏆 Win</a>
+                    <a href="https://match.axom.app" class="app-link">🎁 Match</a>
+                    <a href="https://teams.axom.app" class="app-link">👥 Teams</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://arena.axom.app/quest" class="app-link">📚 Quest</a>
+                    <a href="https://arena.axom.app/rush" class="app-link">⚡ Rush</a>
+                    <a href="https://arena.axom.app/mind" class="app-link">🧠 Mind</a>
+                </div>
+            </div>
         </header>
+
+        <style>
+            .apps-menu-container { position: relative; display: inline-block; }
+            .apps-menu-btn { 
+                background: rgba(255, 255, 255, 0.05); 
+                border: 1px solid rgba(255,255,255,0.1); 
+                color: white; padding: 10px 18px; border-radius: 8px; 
+                cursor: pointer; font-weight: 600; transition: all 0.3s; 
+                font-size: 0.9rem; font-family: 'Inter', sans-serif;
+                display: flex; align-items: center; gap: 8px;
+            }
+            .apps-menu-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
+            .apps-dropdown {
+                position: absolute; top: calc(100% + 12px); right: 0; width: 220px;
+                background: rgba(13, 17, 23, 0.9); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+                border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
+                box-shadow: 0 15px 50px rgba(0,0,0,0.6); padding: 10px; z-index: 10000;
+                display: flex; flex-direction: column; gap: 6px;
+            }
+            .app-link {
+                display: flex; align-items: center; gap: 12px; padding: 12px;
+                color: #e0e0e0 !important; text-decoration: none !important; border-radius: 10px; font-size: 0.9rem; transition: all 0.2s;
+            }
+            .app-link:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(8px); }
+            .dropdown-divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 6px 0; }
+            .hidden { display: none !important; }
+        </style>
+
+        <script>
+            (function() {
+                const btn = document.getElementById('apps-menu-btn');
+                const dropdown = document.getElementById('apps-dropdown');
+                if (btn && dropdown) {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        dropdown.classList.toggle('hidden');
+                    });
+                    window.addEventListener('click', (e) => {
+                        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+                            dropdown.classList.add('hidden');
+                        }
+                    });
+                }
+            })();
+        </script>
 
         <main class="glass-panel">
             

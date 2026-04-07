@@ -63,19 +63,25 @@ h1, h2, h3, .brand {
 }
 
 /* --- UI ELEMENTS --- */
-header {
+.zen-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4rem;
+    padding: 20px 30px;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(25px);
 }
 
-.brand {
-    font-size: 1.5rem;
+.brand-premium {
+    font-family: 'Outfit';
     font-weight: 900;
+    font-size: 1.4rem;
     letter-spacing: 0.2rem;
-    color: white;
-    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
 }
 
 .status-badge {
