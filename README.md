@@ -1,21 +1,18 @@
-# 👥 ARENA Teams (cloudflare-teams)
+# 📦 ARENA TEAMS
 
-O **ARENA Teams** é o ecossistema dedicado à gestão de audiência e formação de equipes de alta performance. Ele automatiza a divisão de grupos equilibrados para workshops e dinâmicas coletivas.
+Este repositório faz parte do ecossistema de alto desempenho da **ZUKON TECH LTDA**, projetado para sincronização em tempo real e experiências gamificadas de vanguarda.
 
-## 🚀 Funcionalidades
-- **Geração Aleatória**: Divisão de grandes listas em grupos de qualquer tamanho em segundos.
-- **Identidade Visual**: Atribuição automática de cores e namespaces para cada equipe.
-- **Exportação Nativa**: Integração com os motores de jogo da Arena.
+## 🚀 Arquitetura Zen
+Desenvolvido sob o paradigma de **Descentralização por Ecossistemas**, este módulo opera na borda (Edge) via Cloudflare Workers, garantindo latência ultrabaixa e escalabilidade atômica.
 
-## 🛠️ Tecnologias
-- **Frontend**: Vanilla JS / HTML5.
-- **Infra**: Cloudflare Edge.
+## ��️ Tecnologias Principais
+- **Stack**: Vanilla JS / HTML5 / CSS3 (Zen Design System)
+- **Deployment**: Infraestrutura Global via Cloudflare e Hub Arena Central.
+- **Sincronização**: Motor Pure WebSocket sincronizado em game.axom.app.
 
-## 📚 Documentação
-Consulte o [Manual Geral da Arena](https://arena.axom.app/manual.html) para instruções detalhadas.
-
----
-Desenvolvido por [ZUKON TECH](https://zukon.tech).
+## 📚 Documentação Unificada
+A operação detalhada, guias de áudio e configurações avançadas estão disponíveis no **[Manual Geral do Ecossistema](https://arena.axom.app/manual.html)**.
 
 ---
-© 2026 ZUKON TECH LTDA. PROPRIETARY CODE. ALL RIGHTS RESERVED.
+© 2026 **ZUKON TECH LTDA** — São Paulo, Brasil. 
+**PROPRIETARY CODE. ALL RIGHTS RESERVED.**
